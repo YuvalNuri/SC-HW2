@@ -63,3 +63,18 @@ h1 {
     background-color: #96c9f3;
     margin-top: 4px;
 }
+
+.image-container {
+    position: relative; /* מאפשר למקם את ה-span מעל התמונה */
+  }
+  
+  .rating {
+    position: absolute;
+    top: 10px; /* מרחק מהחלק העליון של התמונה */
+    right: 25px; /* מרחק מהחלק הימני של התמונה */
+    background-color: rgba(0, 0, 0, 0.5); /* רקע שקוף למחצה */
+    color: white;
+    padding: 5px;
+    border-radius: 5px;
+  }
+  
