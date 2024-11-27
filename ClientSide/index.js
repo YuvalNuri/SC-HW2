@@ -63,6 +63,7 @@ function AddToWishList(i) {
 }
 
 function ShowWishList() {
+<<<<<<< HEAD
     $(".wishD").hide();
     $(".card").hide();
     ajaxCall('GET', apiMovies, null, SuccessCBWish, ErrorCallBack);
@@ -79,4 +80,16 @@ function SuccessCBWish(data) {
 function ShowAllMovies(){
     $(".card").show();
     $(".wishD").show();
+=======
+    $("#AllMovies").hide();
+}
+
+function FilterByDur(){
+    duration =  $("#filterDuration").val();
+
+}
+
+function FilterByRate(){
+    rating = $("#filterRating").val();
+>>>>>>> tamir1
 }
