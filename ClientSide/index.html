@@ -28,6 +28,15 @@
             <div class="col-4"><button id="btnWishList" onclick="ShowWishList()">Wishlist</button></div>
             <div class="col-4"><button id="btnCastForm">Cast Form</button></div>
         </div>
+        <div class="row filter">
+       <div class="col-6">
+            filter by rating: <input type="number" id="filterRating" min="0" max="10" onchange="FilterByRate()">
+       </div>
+        <div class="col-6">
+            filter by duration (minutes): <input type="number" id="filterDuration" min="0" onchange="FilterByDur()">
+        </div>
+         
+       
         <div class="row" id="AllMovies">
             
         </div>

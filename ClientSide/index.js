@@ -71,3 +71,12 @@ function AddToWishList(i) {
 function ShowWishList() {
     $("#AllMovies").hide();
 }
+
+function FilterByDur(){
+    duration =  $("#filterDuration").val();
+
+}
+
+function FilterByRate(){
+    rating = $("#filterRating").val();
+}
