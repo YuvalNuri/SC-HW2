@@ -24,6 +24,7 @@ const apiMovies = "https://localhost:7208/api/Movies"
 function init() {
     allMoviesStr = AllMovies();
     document.getElementById("AllMovies").innerHTML = allMoviesStr;
+    $("#filter").hide();
 }
 
 function AllMovies() {
@@ -65,6 +66,7 @@ function AddToWishList(i) {
 function ShowWishList() {
     $(".wishD").hide();
     $(".card").hide();
+    $("#filter").show();
     ajaxCall('GET', apiMovies, null, SuccessCBWish, ErrorCallBack);
 }
 
@@ -79,6 +81,7 @@ function SuccessCBWish(data) {
 function ShowAllMovies(){
     $(".card").show();
     $(".wishD").show();
+    $("#filter").hide();
 }
 
 function FilterByDur(){
