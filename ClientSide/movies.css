@@ -1,7 +1,3 @@
-body {
-    background-color: antiquewhite;
-}
-
 h1 {
     text-align: center;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
@@ -13,7 +9,7 @@ h1 {
     margin-bottom: 20px;
 }
 
-.menu button {
+.menu button, form button {
     width: 90%;
     border-radius: 10cap;
     border-color: transparent;
@@ -66,17 +62,13 @@ h1 {
 
 .image-container {
     position: relative;
-    /* מאפשר למקם את ה-span מעל התמונה */
 }
 
 .rating {
     position: absolute;
     top: 10px;
-    /* מרחק מהחלק העליון של התמונה */
     right: 25px;
-    /* מרחק מהחלק הימני של התמונה */
     background-color: rgba(0, 0, 0, 0.5);
-    /* רקע שקוף למחצה */
     color: white;
     padding: 5px;
     border-radius: 5px;
@@ -100,4 +92,62 @@ h1 {
 
 div.cardPart {
     padding: 0 5px;
+}
+
+input{
+background-color: transparent;
+border: rgb(182, 212, 212) solid 2px;
+border-radius: 5px;
+padding: 10px;
+}
+
+#filter div input{
+    width: 70%;
+    float: left;
+}
+
+#filter div button{
+    width: 25%;
+    float: right;
+    background-color: rgb(182, 212, 212);
+    border: rgb(182, 212, 212) solid 2px;
+    border-radius: 5px;
+}
+
+#filter div p, #filter{
+    margin-bottom: 5px;
+}
+
+#castRow{
+    background-color: rgb(242, 245, 248);
+    border-radius: 20px;
+    margin: 0 50px;
+    margin-bottom: 50px;
+}
+
+.required{
+    color: red;
+}
+
+label{
+    font-weight: bold;
+}
+
+#castForm{
+    width: 100%;
+    padding: 20px 100px;
+}
+
+#castForm div{
+    text-align: center;
+}
+
+#castForm div button{
+    margin-top: 20px;
+    width: 50%;
+}
+
+#castForm input{
+    width: 100%;
+    margin-bottom: 10px;
 }

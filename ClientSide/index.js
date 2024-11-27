@@ -19,12 +19,16 @@ function ErrorCallBack(err) {
     console.log(err);
 }
 
-const apiMovies = "https://localhost:7208/api/Movies"
+const apiMovies = "https://localhost:7208/api/Movies";
+const apiRating = "https://localhost:7208/api/Movies/rating/";
+const apiDuration = "https://localhost:7208/api/Movies/GetByDuration?duration=";
+const apiCast = "https://localhost:7208/api/Casts";
 
 function init() {
     allMoviesStr = AllMovies();
     document.getElementById("AllMovies").innerHTML = allMoviesStr;
     $("#filter").hide();
+    $("#castRow").hide();
 }
 
 function AllMovies() {
@@ -35,8 +39,7 @@ function AllMovies() {
         strMovies += `<div class="col-md-6 col-lg-4 card" id="m${movies[i].id}">
                 <div class="row">
                     <div class="col-4 col-md-6 cardPart">
-                        <img class="image-container"
-                            src="${movies[i].photoUrl}">
+                        <img class="image-container" src="${movies[i].photoUrl}" onerror="handleImageError(this)">
                         <span class="rating"><i class="fas fa-star"></i> ${movies[i].rating}</span>
                     </div>
                     <div class="col-8 col-md-6 cardPart">
@@ -66,29 +69,72 @@ function AddToWishList(i) {
 function ShowWishList() {
     $(".wishD").hide();
     $(".card").hide();
+    $("#castRow").hide();
     $("#filter").show();
+    $("#filterRating").val('');
+    $("#filterDuration").val('');
     ajaxCall('GET', apiMovies, null, SuccessCBWish, ErrorCallBack);
 }
 
 function SuccessCBWish(data) {
     console.log(data);
-    for(let i=0;i< data.length;i++)
-    {
+    for (let i = 0; i < data.length; i++) {
         $(`#m${data[i].id}`).show();
     }
 }
 
-function ShowAllMovies(){
+function ShowAllMovies() {
     $(".card").show();
     $(".wishD").show();
     $("#filter").hide();
+    $("#castRow").hide();
 }
 
-function FilterByDur(){
-    duration =  $("#filterDuration").val();
+function FilterByDur() {
+    duration = $("#filterDuration").val();
+    $("#filterRating").val('');
+    $(".card").hide();
+    ajaxCall('GET', apiDuration + duration, null, SuccessCBWish, ErrorCallBack);
 
 }
 
-function FilterByRate(){
+function FilterByRate() {
     rating = $("#filterRating").val();
+    $("#filterDuration").val('');
+    $(".card").hide();
+    ajaxCall('GET', apiRating + rating, null, SuccessCBWish, ErrorCallBack);
+
+}
+
+function handleImageError(imgElement) {
+    imgElement.src = "pics/Xpic.png";
+}
+
+function ShowCastForm() {
+    $(".card").hide();
+    $("#filter").hide();
+    $("#castRow").show();
+}
+
+$(document).ready(function () {
+    $("#castForm").submit(function (event) {
+        event.preventDefault();
+
+        cast = {
+            Id: $("#idC").val(),
+            Name: $("#nameC").val(),
+            Role: $("#roleC").val(),
+            DateOfBirth: $("#bdC").val(),
+            Country: $("#countryC").val(),
+            PhotoUrl: $("#phuC").val(),
+        }
+        ajaxCall('POST', apiCast, JSON.stringify(cast), SuccessCBCast, ErrorCallBack);
+    });
+});
+
+function SuccessCBCast(err) {
+    console.log(err);
+    if(!err){
+        alert("Something went wrong! Check if this ID is already taken!");
+    }
 }
