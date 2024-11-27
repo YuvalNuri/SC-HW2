@@ -28,11 +28,10 @@ function init() {
 
 function AllMovies() {
     let strMovies = "";
-    moviesDivs = [];
     for (let i = 0; i < movies.length; i++) {
         console.log(movies[i].title);
 
-        moviesDivs[i] = `<div class="col-md-6 col-lg-4 card" id="m${movies[i].id}">
+        strMovies += `<div class="col-md-6 col-lg-4 card" id="m${movies[i].id}">
                 <div class="row">
                     <div class="col-4 col-md-6 cardPart">
                         <img class="image-container"
@@ -48,20 +47,15 @@ function AllMovies() {
                     </div>
                     <div class="col-12 desc">
                         ${movies[i].description}
-                    </div>`;
-
-        strMovies += moviesDivs[i] + `
+                    </div>
                     <div class="col-12 wishD">
                         <button class="btnATWish" onclick="AddToWishList(${i})">Add to Wish List</button>
                     </div>
                 </div>
             </div>`;
-        moviesDivs[i] += `</div></div>`;
     }
     return strMovies;
 }
-
-
 
 function AddToWishList(i) {
     ajaxCall('POST', apiMovies, JSON.stringify(movies[i]), SuccessCallBack, ErrorCallBack);
@@ -69,5 +63,20 @@ function AddToWishList(i) {
 }
 
 function ShowWishList() {
-    $("#AllMovies").hide();
+    $(".wishD").hide();
+    $(".card").hide();
+    ajaxCall('GET', apiMovies, null, SuccessCBWish, ErrorCallBack);
+}
+
+function SuccessCBWish(data) {
+    console.log(data);
+    for(let i=0;i< data.length;i++)
+    {
+        $(`#m${data[i].id}`).show();
+    }
+}
+
+function ShowAllMovies(){
+    $(".card").show();
+    $(".wishD").show();
 }
