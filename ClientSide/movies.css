@@ -20,10 +20,10 @@ h1 {
     background-color: rgb(182, 212, 212);
 }
 
+
 .card {
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
     transition: 0.3s;
-    width: 40%;
     border-radius: 5px;
     font-size: 0.9rem;
 }
@@ -32,7 +32,7 @@ h1 {
     box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
 }
 
-.MovieName{
+.MovieName {
     margin-top: 10px;
     font-size: 1.1rem;
 }
@@ -65,16 +65,39 @@ h1 {
 }
 
 .image-container {
-    position: relative; /* מאפשר למקם את ה-span מעל התמונה */
-  }
-  
-  .rating {
+    position: relative;
+    /* מאפשר למקם את ה-span מעל התמונה */
+}
+
+.rating {
     position: absolute;
-    top: 10px; /* מרחק מהחלק העליון של התמונה */
-    right: 25px; /* מרחק מהחלק הימני של התמונה */
-    background-color: rgba(0, 0, 0, 0.5); /* רקע שקוף למחצה */
+    top: 10px;
+    /* מרחק מהחלק העליון של התמונה */
+    right: 25px;
+    /* מרחק מהחלק הימני של התמונה */
+    background-color: rgba(0, 0, 0, 0.5);
+    /* רקע שקוף למחצה */
     color: white;
     padding: 5px;
     border-radius: 5px;
-  }
-  
+}
+
+.wishD {
+    text-align: center;
+}
+
+.desc {
+    margin-bottom: 8px;
+}
+
+.btnATWish {
+    width: 150px;
+    border-radius: 10cap;
+    border-color: transparent;
+    background-color: rgb(182, 212, 212);
+    margin-bottom: 5px;
+}
+
+div.cardPart {
+    padding: 0 5px;
+}
