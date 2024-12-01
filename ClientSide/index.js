@@ -25,10 +25,9 @@ const apiDuration = "https://localhost:7208/api/Movies/GetByDuration?duration=";
 const apiCast = "https://localhost:7208/api/Casts";
 
 function init() {
-    swal("Added Successfuly!", "Great Job", "success");
-
     allMoviesStr = AllMovies();
     document.getElementById("AllMovies").innerHTML = allMoviesStr;
+    ajaxCall('GET', apiCast, null, SuccessCBGetAllCast, ErrorCallBack);
     $("#filter").hide();
     $("#castRow").hide();
 }
@@ -61,6 +60,24 @@ function AllMovies() {
             </div>`;
     }
     return strMovies;
+}
+
+function SuccessCBGetAllCast(data) {
+    console.log(data);
+    let allCasrStr = "";
+    for (let i=0;i<data.length;i++) {
+        allCasrStr += `<div class="col-12 col-md-4 col-lg-3 player-card">
+                        <img src="${data[i].photoUrl}">
+                        <div class="player-info">
+                            <span><strong>id:</strong> ${data[i].id}</span>
+                            <span><strong>name:</strong> ${data[i].name}</span>
+                            <span><strong>role:</strong> ${data[i].role}</span>
+                            <span><strong>date of birth:</strong> ${data[i].dateOfBirth}</span>
+                            <span><strong>country:</strong> ${data[i].country}</span>
+                        </div>
+                    </div>`;
+    }
+    document.getElementById("CMrow").innerHTML = allCasrStr;
 }
 
 function AddToWishList(i) {
@@ -134,13 +151,28 @@ $(document).ready(function () {
     });
 });
 
-function SuccessCBCast(err) {
-    console.log(err);
-    if(!err){
+function SuccessCBCast(data) {
+    console.log(data);
+    if (!data) {
         alert("Something went wrong! Check if this ID is already taken!");
     }
-    else
-    {
-        swal("Added Successfuly!", "Great Job", "success");
+    else {
+        ajaxCall('GET', apiCast, null, SuccessCBGetCast, ErrorCallBack);
     }
+}
+
+function SuccessCBGetCast(data) {
+    console.log(data);
+    castMember = data[data.length - 1];
+    document.getElementById("CMrow").innerHTML +=
+        `<div class="col-12 col-md-4 col-lg-3 player-card">
+                        <img src="${castMember.photoUrl}">
+                        <div class="player-info">
+                            <span><strong>id:</strong> ${castMember.id}</span>
+                            <span><strong>name:</strong> ${castMember.name}</span>
+                            <span><strong>role:</strong> ${castMember.role}</span>
+                            <span><strong>date of birth:</strong> ${castMember.dateOfBirth}</span>
+                            <span><strong>country:</strong> ${castMember.country}</span>
+                        </div>
+                    </div>`;
 }
