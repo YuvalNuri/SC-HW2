@@ -177,3 +177,5 @@ function SuccessCBGetCast(data) {
                         </div>
                     </div>`;
 }
+
+document.getElementById("bdC").max = new Date().toISOString().split('T')[0];

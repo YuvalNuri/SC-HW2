@@ -51,11 +51,11 @@
                     <h2>Add Cast Member</h2>
                 </div>
                 <label>ID<span class="required" >*</span></label><br/>
-                <input type="text" id="idC" required pattern="{9}" title="ID must be exactly 9 digits."><br/>
+                <input type="text" id="idC" required maxlength="9" title="ID must be exactly 9 digits."><br/>
                 <label>Name<span class="required">*</span></label><br/>
                 <input type="text" id="nameC" required pattern="[A-Za-z\s]+" title="Name must contain only letters and spaces."><br/>
                 <label>Role<span class="required">*</span></label><br/>
-                <input type="text" id="roleC" required title="Role cannot be empty."><br/>
+                <input type="text" id="roleC" required><br/>
                 <label>Date Of Birth<span class="required">*</span></label><br/>
                 <input type="date" id="bdC" required><br/>
                 <label>Country<span class="required">*</span></label><br/>
