@@ -72,7 +72,7 @@ function SuccessCBGetAllCast(data) {
                             <span><strong>id:</strong> ${data[i].id}</span>
                             <span><strong>name:</strong> ${data[i].name}</span>
                             <span><strong>role:</strong> ${data[i].role}</span>
-                            <span><strong>date of birth:</strong> ${data[i].dateOfBirth}</span>
+                            <span><strong>date of birth:</strong> ${data[i].dateOfBirth.toString().split('T')[0]}</span>
                             <span><strong>country:</strong> ${data[i].country}</span>
                         </div>
                     </div>`;
@@ -157,6 +157,7 @@ function SuccessCBCast(data) {
         alert("Something went wrong! Check if this ID is already taken!");
     }
     else {
+        $("#castForm")[0].reset();
         ajaxCall('GET', apiCast, null, SuccessCBGetCast, ErrorCallBack);
     }
 }
@@ -171,7 +172,7 @@ function SuccessCBGetCast(data) {
                             <span><strong>id:</strong> ${castMember.id}</span>
                             <span><strong>name:</strong> ${castMember.name}</span>
                             <span><strong>role:</strong> ${castMember.role}</span>
-                            <span><strong>date of birth:</strong> ${castMember.dateOfBirth}</span>
+                            <span><strong>date of birth:</strong> ${castMember.dateOfBirth.toString().split('T')[0]}</span>
                             <span><strong>country:</strong> ${castMember.country}</span>
                         </div>
                     </div>`;
