@@ -25,6 +25,8 @@ const apiDuration = "https://localhost:7208/api/Movies/GetByDuration?duration=";
 const apiCast = "https://localhost:7208/api/Casts";
 
 function init() {
+    swal("Added Successfuly!", "Great Job", "success");
+
     allMoviesStr = AllMovies();
     document.getElementById("AllMovies").innerHTML = allMoviesStr;
     $("#filter").hide();
@@ -136,5 +138,9 @@ function SuccessCBCast(err) {
     console.log(err);
     if(!err){
         alert("Something went wrong! Check if this ID is already taken!");
+    }
+    else
+    {
+        swal("Added Successfuly!", "Great Job", "success");
     }
 }
