@@ -50,19 +50,20 @@
                 <div class="col-12">
                     <h2>Add Cast Member</h2>
                 </div>
-                <label>ID<span class="required">*</span></label><br />
-                <input type="text" id="idC" required><br />
-                <label>Name<span class="required">*</span></label><br />
-                <input type="text" id="nameC" required><br />
-                <label>Role<span class="required">*</span></label><br />
-                <input type="text" id="roleC" required><br />
-                <label>Date Of Birth<span class="required">*</span></label><br />
-                <input type="date" id="bdC" required><br />
-                <label>Country<span class="required">*</span></label><br />
-                <input type="text" id="countryC" required><br />
-                <label>Photo URL<span class="required">*</span></label><br />
-                <input type="text" id="phuC" required><br />
-                <div class="col-12">
+                <label>ID<span class="required" >*</span></label><br/>
+                <input type="text" id="idC" required pattern="{9}" title="ID must be exactly 9 digits."><br/>
+                <label>Name<span class="required">*</span></label><br/>
+                <input type="text" id="nameC" required pattern="[A-Za-z\s]+" title="Name must contain only letters and spaces."><br/>
+                <label>Role<span class="required">*</span></label><br/>
+                <input type="text" id="roleC" required title="Role cannot be empty."><br/>
+                <label>Date Of Birth<span class="required">*</span></label><br/>
+                <input type="date" id="bdC" required><br/>
+                <label>Country<span class="required">*</span></label><br/>
+                <input type="text" id="countryC" required pattern="[A-Za-z\s]+" title="Country must contain only letters."><br/>
+                <label>Photo URL<span class="required">*</span></label><br/>
+                <input type="text" id="phuC" required pattern="https?://.*\.(jpeg|jpg|png|gif)" 
+                title="Photo URL must be a valid image URL (e.g., http://example.com/image.jpg)."><br/>
+                <div class="col-12">                
                     <button type="submit">Submit</button>
                 </div>
             </form>
