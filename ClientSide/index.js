@@ -19,10 +19,10 @@ function ErrorCallBack(err) {
     console.log(err);
 }
 
-const apiMovies = "https://localhost:7208/api/Movies";
-const apiRating = "https://localhost:7208/api/Movies/rating/";
-const apiDuration = "https://localhost:7208/api/Movies/GetByDuration?duration=";
-const apiCast = "https://localhost:7208/api/Casts";
+const apiMovies = "https://proj.ruppin.ac.il/bgroup2/test2/tar1/api/Movies";
+const apiRating = "https://proj.ruppin.ac.il/bgroup2/test2/tar1/api/Movies/rating/";
+const apiDuration = "https://proj.ruppin.ac.il/bgroup2/test2/tar1/api/Movies/GetByDuration?duration=";
+const apiCast = "https://proj.ruppin.ac.il/bgroup2/test2/tar1/api/Casts";
 
 function init() {
     allMoviesStr = AllMovies();
