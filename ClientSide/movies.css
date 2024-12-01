@@ -138,6 +138,12 @@ label{
     padding: 20px 100px;
 }
 
+@media (max-width: 576px) {
+    #castForm {
+        padding: 20px 20px;
+    }
+}
+
 #castForm div{
     text-align: center;
 }
