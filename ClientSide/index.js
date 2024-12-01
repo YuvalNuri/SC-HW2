@@ -28,6 +28,7 @@ function init() {
     allMoviesStr = AllMovies();
     document.getElementById("AllMovies").innerHTML = allMoviesStr;
     ajaxCall('GET', apiCast, null, SuccessCBGetAllCast, ErrorCallBack);
+    document.getElementById("bdC").max = new Date().toISOString().split('T')[0];
     $("#filter").hide();
     $("#castRow").hide();
 }
@@ -178,4 +179,3 @@ function SuccessCBGetCast(data) {
                     </div>`;
 }
 
-document.getElementById("bdC").max = new Date().toISOString().split('T')[0];

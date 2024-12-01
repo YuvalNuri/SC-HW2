@@ -152,15 +152,11 @@ label{
     margin-bottom: 10px;
 }
 
-/* עיצוב המעטפת הכללית */
 #CastMembers {
-    padding: 20px;
-    background-color: #f5f5f5;
     border-radius: 10px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
-/* עיצוב כרטיסי שחקנים */
 .player-card {
     background-color: #fff;
     border: 1px solid #ddd;
@@ -177,7 +173,6 @@ label{
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
 }
 
-/* עיצוב התמונה */
 .player-card img {
     max-width: 100%;
     height: auto;
@@ -185,7 +180,6 @@ label{
     margin-bottom: 15px;
 }
 
-/* עיצוב המידע */
 .player-info span {
     display: block;
     margin-bottom: 5px;
